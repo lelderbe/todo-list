@@ -32,20 +32,35 @@ body {
 .list__item {
   display: flex;
   margin-bottom: 10px;
-
 }
 
-.list__item--checked {
-  /* text-decoration: line-through; */
+.list__item:hover .trash {
+  display: inline;
 }
 
 .list__checkbox {
   width: 20px;
   height: 20px;
+  margin-right: 10px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .list__checkbox:checked ~ span {
   text-decoration: line-through;
-  color: gray;
+  opacity: 0.3;
+}
+
+.list__label {
+  display: flex;
+  cursor: pointer;
+}
+
+.trash {
+  display: none;
+  cursor: pointer;
+}
+
+.list__label:hover {
+  color: green;
 }
