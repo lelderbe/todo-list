@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+  /* background-color: beige; */
+}
+
+.form__input {
+  width: 80%;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
+
+.list__item {
+  margin-bottom: 10px;
+
+}
