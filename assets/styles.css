@@ -15,11 +15,42 @@ body {
   text-align: center;
 }
 
-.form__input {
+.form {
+  position: relative;
+}
+
+.form__title {
+  width: 80%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid transparent;
+  outline: 0;
+}
+
+.form__description {
   width: 80%;
   height: 40px;
   padding: 10px;
+  margin-bottom: 10px;
   font-size: 20px;
+  border: 1px solid transparent;
+  outline: 0;
+}
+
+.form__button {
+  height: 30px;
+}
+
+.form__title:hover,
+.form__description:hover {
+  border: 1px solid #000;
+}
+
+.form__title:focus,
+.form__description:focus {
+  border: 1px solid #000;
 }
 
 .list {
@@ -30,7 +61,7 @@ body {
 }
 
 .list__item {
-  display: flex;
+  /* display: flex; */
   margin-bottom: 10px;
 }
 
@@ -38,7 +69,7 @@ body {
   display: inline;
 }
 
-.list__checkbox {
+.task__checkbox {
   width: 20px;
   height: 20px;
   margin-right: 10px;
@@ -46,13 +77,13 @@ body {
   cursor: pointer;
 }
 
-.list__checkbox:checked ~ span {
+.task__checkbox:checked ~ span {
   text-decoration: line-through;
   opacity: 0.3;
 }
 
-.list__label {
-  display: flex;
+.task__label {
+  /* display: flex; */
   cursor: pointer;
 }
 
@@ -61,6 +92,68 @@ body {
   cursor: pointer;
 }
 
-.list__label:hover {
+.task__label:hover {
   color: green;
+}
+
+.task {
+}
+
+.task__title {
+}
+
+.task__description {
+  font-size: 16px;
+  color: gray;
+}
+
+.form__chevron {
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  cursor: pointer;
+}
+
+.task--done {
+  opacity: 0.3;
+}
+
+/* .task-form__details {
+  position: relative;
+  flex-grow: 1;
+}
+
+.list-item__chevron {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+details {
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+details[open] .list-item__chevron {
+  transform: rotate(180deg);
+}
+
+summary {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:hover {
+  cursor: pointer;
+} */
+
+.invert {
+  transform: rotate(180deg);
+}
+
+.hide {
+  display: none;
 }
