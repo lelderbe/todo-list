@@ -18,14 +18,37 @@ const formDetails = document.querySelector('#form__details');
 
 let formExpanded = false;
 
+function expandDetails(expand) {
+  formExpanded = expand === undefined ? !formExpanded : expand;
+  if (formExpanded) {
+    formDetails.classList.remove('hide');
+    chevronButton.classList.add('invert');
+  } else {
+    formDetails.classList.add('hide');
+    chevronButton.classList.remove('invert');
+  }
+  // formExpanded = expand === undefined ? !formExpanded : expand;
+  // formDetails.classList.toggle('hide');
+  // chevronButton.classList.toggle('invert');
+  setInputFocus();
+}
+
+function setInputFocus() {
+  titleField.focus();
+}
+
 chevronButton.addEventListener('click', (e) => {
-  formExpanded = !formExpanded;
-  formDetails.classList.toggle('hide');
-  chevronButton.classList.toggle('invert');
+  expandDetails();
 });
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  e.stopPropagation();
+  if (titleField.value === '') {
+    // Hit enter - expand details
+    expandDetails();
+    return;
+  }
   const title = titleField.value.trim();
   const description = descriptionField.value.trim();
   if (!title) {
@@ -36,6 +59,8 @@ form.addEventListener('submit', (e) => {
   const task = { title: title, done: false, description: description };
   tasks.push(task);
   form.reset();
+  expandDetails(false);
+  setInputFocus();
   displayTasks();
 });
 
@@ -65,6 +90,7 @@ function displayTasks() {
       `;
     })
     .join('');
+  setInputFocus();
 }
 
 function toggleTaskDone(id) {

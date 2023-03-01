@@ -10,23 +10,31 @@
     <title>TODO list</title>
 </head>
 <body>
-    <div class="container">
-        <form class="form" action="">
-            <input class="form__title" type="text" placeholder="Добавить новую задачу...">
-            <svg class="form__chevron" width="21" height="16" viewBox="0 0 11 6" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M6 5.08L10.32 0.706666L10.96 1.34667L6.26667 5.98667H5.68L0.986667 1.34667L1.62667 0.706666L6 5.08Z"
-                    fill="#000000" />
-            </svg>
-            <div id="form__details" class="hide">
-                <input class="form__description" type="text" placeholder="Описание задачи...">
-                <button class="form__button">Добавить задачу</button>
+    <header class="header">
+        <div class="header__wrapper">
+            <div class="header__container">
+                <h1 class="header__title">// TODO:</h1>
+                <form class="form" action="">
+                    <input class="form__title" type="text" placeholder="Добавить новую задачу...">
+                    <svg class="form__chevron" width="21" height="16" viewBox="0 0 11 6" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6 5.08L10.32 0.706666L10.96 1.34667L6.26667 5.98667H5.68L0.986667 1.34667L1.62667 0.706666L6 5.08Z"
+                            fill="#000000" />
+                    </svg>
+                    <div id="form__details" class="hide">
+                        <input class="form__description" type="text" placeholder="Описание задачи..."><br>
+                        <button class="form__button">Добавить задачу</button>
+                    </div>
+                </form>
             </div>
-        </form>
-        <h1>// TODO</h1>
-        <ul class="list">
-        </ul>
+        </div>
+    </header>
+    <div class="container">
+        <div class="wrapper">
+            <ul class="list">
+            </ul>
+        </div>
     </div>
     <script src="assets/script.js"></script>    
 </body>
