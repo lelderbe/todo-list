@@ -104,7 +104,8 @@ body {
   margin-bottom: 10px;
 }
 
-.list__item:hover .trash {
+.list__item:hover .trash,
+.list__item:hover .edit {
   display: inline;
 }
 
@@ -126,7 +127,8 @@ body {
   cursor: pointer;
 }
 
-.trash {
+.trash,
+.edit {
   display: none;
   cursor: pointer;
 }
@@ -156,38 +158,6 @@ body {
 .task--done {
   opacity: 0.3;
 }
-
-/* .task-form__details {
-  position: relative;
-  flex-grow: 1;
-}
-
-.list-item__chevron {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-}
-
-details {
-  padding: 20px;
-  border: 1px solid #000;
-}
-
-details[open] .list-item__chevron {
-  transform: rotate(180deg);
-}
-
-summary {
-  display: block;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary:hover {
-  cursor: pointer;
-} */
 
 .invert {
   transform: rotate(180deg);

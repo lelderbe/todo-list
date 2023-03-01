@@ -1,5 +1,3 @@
-// const tasks = [];
-
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [
   { title: 'Сделать что-то хорошее', done: false, description: '' },
   { title: 'Прочитать все книги мира', done: false, description: 'К концу этого года' },
@@ -9,16 +7,18 @@ const tasks = JSON.parse(localStorage.getItem('tasks')) || [
 ];
 
 const form = document.querySelector('.form');
-// const addButton = document.querySelector('.form__button');
 const titleField = document.querySelector('.form__title');
 const descriptionField = document.querySelector('.form__description');
+const submitButton = document.querySelector('.form__button');
 const list = document.querySelector('.list');
 const chevronButton = document.querySelector('.form__chevron');
 const formDetails = document.querySelector('#form__details');
 
 let formExpanded = false;
+let editTask = null;
 
 function expandDetails(expand) {
+  submitButton.textContent = editTask ? 'Сохранить' : 'Добавить задачу';
   formExpanded = expand === undefined ? !formExpanded : expand;
   if (formExpanded) {
     formDetails.classList.remove('hide');
@@ -27,9 +27,6 @@ function expandDetails(expand) {
     formDetails.classList.add('hide');
     chevronButton.classList.remove('invert');
   }
-  // formExpanded = expand === undefined ? !formExpanded : expand;
-  // formDetails.classList.toggle('hide');
-  // chevronButton.classList.toggle('invert');
   setInputFocus();
 }
 
@@ -44,27 +41,32 @@ chevronButton.addEventListener('click', (e) => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   e.stopPropagation();
-  if (titleField.value === '') {
+
+  if (titleField.value === '' && descriptionField.value === '') {
     // Hit enter - expand details
     expandDetails();
     return;
   }
+
   const title = titleField.value.trim();
   const description = descriptionField.value.trim();
   if (!title) {
-    form.reset();
     return;
   }
 
-  const task = { title: title, done: false, description: description };
-  tasks.push(task);
+  if (editTask) {
+    editTask.title = title;
+    editTask.description = description;
+    editTask = null;
+  } else {
+    const task = { title: title, done: false, description: description };
+    tasks.push(task);
+  }
+
   form.reset();
   expandDetails(false);
-  setInputFocus();
   displayTasks();
 });
-
-function showFormDetails() {}
 
 function displayTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -81,6 +83,7 @@ function displayTasks() {
                 ${item.title}
               </span>
             </label>
+            <i class="edit fas fa-pen" onclick="changeTask(${index})"></i>
             <i class="trash fas fa-trash" onclick="deleteTask(${index})"></i>
           </div>
           <div class="${descriptionClassList}">
@@ -98,7 +101,15 @@ function toggleTaskDone(id) {
   displayTasks();
 }
 
+function changeTask(id) {
+  editTask = tasks[id];
+  expandDetails(true);
+  titleField.value = editTask.title;
+  descriptionField.value = editTask.description;
+}
+
 function deleteTask(id) {
+  editTask = editTask?.id === id ? null : editTask;
   tasks.splice(id, 1);
   displayTasks();
 }
