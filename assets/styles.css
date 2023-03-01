@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  padding: 30px 0;
+  text-align: center;
+  /* border-bottom: 1px solid gray; */
+  background-color: #f3f3f3;
+}
+
+.header__container {
+  display: grid;
+  grid-template-columns: 130px auto;
+}
+
+.header__wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.header__title {
+  margin: 0;
+  white-space: no-wrap;
+}
+
+.container {
+  /* min-height: 100vh; */
+  /* margin: 0 auto; */
+  padding-top: 100px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.form {
+  position: relative;
+  padding: 0 100px 0 20px;
+}
+
+.form__title,
+.form__description {
+  width: 100%;
+  height: 40px;
+  /* margin-top: 10px; */
+  padding: 10px;
+  font-size: 20px;
+  /* border: 1px solid transparent; */
+  border: 1px solid #ddd;
+  outline: 0;
+  background-color: #fff;
+}
+
+.form__description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* .form__description {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 20px;
+  border: 1px solid transparent;
+  outline: 0;
+} */
+
+.form__button {
+  height: 30px;
+}
+
+.form__title:hover,
+.form__description:hover {
+  /* border: 1px solid #000; */
+}
+
+.form__title:focus,
+.form__description:focus {
+  /* border: 1px solid #000; */
+}
+
+.list {
+  padding: 0;
+  font-size: 24px;
+  list-style: none;
+  text-align: left;
+}
+
+.list__item {
+  /* display: flex; */
+  margin-bottom: 10px;
+}
+
+.list__item:hover .trash,
+.list__item:hover .edit {
+  display: inline;
+}
+
+.task__checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.task__checkbox:checked ~ span {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.task__label {
+  /* display: flex; */
+  cursor: pointer;
+}
+
+.trash,
+.edit {
+  display: none;
+  cursor: pointer;
+}
+
+.task__label:hover {
+  color: green;
+}
+
+.task {
+}
+
+.task__title {
+}
+
+.task__description {
+  font-size: 16px;
+  color: gray;
+}
+
+.form__chevron {
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  cursor: pointer;
+}
+
+.task--done {
+  opacity: 0.3;
+}
+
+.invert {
+  transform: rotate(180deg);
+}
+
+.hide {
+  display: none;
+}
