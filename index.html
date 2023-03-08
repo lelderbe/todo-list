@@ -35,6 +35,35 @@
             </div>
         </div>
     </header>
+    <div class="sidebar">
+        <form class="filters" action="">
+            <div class="filters__title">
+                <p>Фильтры</p>
+                <i class="filters__icon trash fas fa-trash"></i>
+            </div>
+            Тип задачи:
+            <select name="type" id="filters__type">
+                <option value="">Любая</option>
+                <option value="private">Личная</option>
+                <option value="work">Рабочая</option>
+            </select>
+            Статус задачи:
+            <select name="type" id="filters__done">
+                <option value="">Любой</option>
+                <option value="true">Выполнена</option>
+                <option value="false">Не выполнена</option>
+            </select>
+            <div class="filters__title">
+                <p>Сортировка</p>
+            </div>
+            По дате:
+            <select name="type" id="filters__date">
+                <option value="">Без сортировки</option>
+                <option value="up">По возрастанию</option>
+                <option value="down">По убыванию</option>
+            </select>
+        </form>
+    </div>
     <div class="container">
         <div class="wrapper">
             <ul class="list">
