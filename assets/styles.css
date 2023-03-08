@@ -92,8 +92,13 @@ body {
   background-color: #fff;
 }
 
+#form__details {
+  text-align: left;
+}
+
 .form__button {
-  height: 30px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .form__title:hover,
