@@ -35,12 +35,11 @@ body {
 
 .header__title {
   margin: 0;
-  white-space: no-wrap;
+  white-space: nowrap;
 }
 
 .container {
-  padding-top: 89px;
-  padding-bottom: 52px;
+  padding: 89px 0 52px;
   font-size: 24px;
   text-align: center;
 }
@@ -81,7 +80,8 @@ body {
   justify-content: space-between;
 }
 
-#form__date, #form__time {
+#form__date,
+#form__time {
   display: inline-block;
   width: 170px;
   padding: 10px;
@@ -89,6 +89,13 @@ body {
   border: 1px solid #ddd;
   outline: 0;
   background-color: #fff;
+}
+
+.form__chevron {
+  position: absolute;
+  top: 10px;
+  right: 70px;
+  cursor: pointer;
 }
 
 #form__details {
@@ -160,13 +167,6 @@ body {
   border-radius: 10px;
 }
 
-.form__chevron {
-  position: absolute;
-  top: 10px;
-  right: 70px;
-  cursor: pointer;
-}
-
 .task_done {
   opacity: 0.3;
 }
@@ -187,7 +187,12 @@ body {
 }
 
 .filters {
+  display: flex;
+  justify-content: center;
   text-align: center;
+}
+
+.filters__wrapper {
 }
 
 .filters select {
@@ -228,4 +233,83 @@ body {
 
 .hide {
   display: none;
+}
+
+/* Pad */
+@media (max-width: 799px) {
+  /* header {
+    padding: 10px;
+  } */
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  .wrapper {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .header {
+    padding: 10px 0;
+  }
+
+  .header__wrapper {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .header__container {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 98px 0 118px;
+  }
+
+  .form {
+    padding-right: 40px;
+    padding-left: 0;
+  }
+
+  .form__extra {
+    flex-direction: column;
+  }
+
+  .form__chevron {
+    right: 10px;
+  }
+
+  #form__type {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #form__date {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #form__time {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .filters__wrapper {
+    width: 320px;
+    margin: 0 auto;
+  }
+
+  .filter__item {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+  }
+
+  .filter__item:last-child {
+    margin-bottom: 0;
+  }
 }
