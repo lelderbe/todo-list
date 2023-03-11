@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css" integrity="sha512-oHDEc8Xed4hiW6CxD7qjbnI+B07vDdX7hEPTvn9pSZO1bcRqHp8mj9pyr+8RVC2GmtEfI2Bi9Ke9Ass0as+zpg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="assets/styles.css">
     <title>TODO list</title>
@@ -24,23 +23,29 @@
                     </svg>
                     <div id="form__details" class="hide">
                         <input class="form__description" type="text" placeholder="Описание задачи..."><br>
-                        <select name="type" id="form__type">
-                            <option value="private">Личная</option>
-                            <option value="work">Рабочая</option>
-                        </select>
-                        <input id="form__date" type="date">
+                        <div class="form__extra">
+                            <select name="type" id="form__type">
+                                <option value="private">Личная</option>
+                                <option value="work">Рабочая</option>
+                            </select>
+                            <input id="form__date" type="date">
+                            <input id="form__time" type="time">
+                        </div>
                         <button class="form__button">Добавить задачу</button>
                     </div>
                 </form>
             </div>
         </div>
     </header>
-    <div class="sidebar">
+    <main class="container">
+        <div class="wrapper">
+            <ul class="list">
+            </ul>
+        </div>
+    </main>
+    <footer class="filters-panel">
         <form class="filters" action="">
-            <div class="filters__title">
-                <p>Фильтры</p>
-                <i class="filters__icon trash fas fa-trash"></i>
-            </div>
+            <!-- <i class="filters__icon trash fas fa-trash"></i> -->
             Тип задачи:
             <select name="type" id="filters__type">
                 <option value="">Любая</option>
@@ -53,9 +58,6 @@
                 <option value="true">Выполнена</option>
                 <option value="false">Не выполнена</option>
             </select>
-            <div class="filters__title">
-                <p>Сортировка</p>
-            </div>
             По дате:
             <select name="type" id="filters__date">
                 <option value="">Без сортировки</option>
@@ -63,13 +65,7 @@
                 <option value="down">По убыванию</option>
             </select>
         </form>
-    </div>
-    <div class="container">
-        <div class="wrapper">
-            <ul class="list">
-            </ul>
-        </div>
-    </div>
+    </footer>
     <script src="assets/script.js"></script>    
 </body>
 </html>
